@@ -7,10 +7,10 @@ Sample usage:
 
 First make sure you modify the download directory in the script. This is hardcoded for ease of the usage. It works both on Windows and MacOS. 
 
-python ICITOUTTVvttparser.py <Link-to-the-episode-of-the-tv-show>
+python parser.py <Link-to-the-episode-of-the-tv-show>
 
 example for Mes petits malheurs s01 e01
 
-python ICITOUTTVvttparser.py http://ici.tou.tv/mes-petits-malheurs/S01E01?lectureauto=1
+python parser.py http://ici.tou.tv/mes-petits-malheurs/S01E01?lectureauto=1
 
 
