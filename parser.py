@@ -13,6 +13,11 @@ import requests
 
 
 def findSubstring(s1, s2):
+    """
+    Finds the longest sequence common between two strings where the common
+    string is at the end of first string and at the beginning of second
+    string.
+    """
     len_s1 = len(s1)
     len_s2 = len(s2)
 
@@ -28,6 +33,9 @@ def findSubstring(s1, s2):
 
 
 def download(show_episode_url):
+    """
+    Download *.vtt subtitle file from the given URL.
+    """
     print("Downloading Episode HTML File From: " + show_episode_url)
     urllib3.PoolManager()
     r = requests.get(show_episode_url)
@@ -48,6 +56,9 @@ def download(show_episode_url):
 
 
 def preprocess(vtt_file, pre_file):
+    """
+    Merges multiple lines into single line.
+    """
     fi = codecs.open(vtt_file, "r", "utf-8")
     fo = codecs.open(pre_file, "w", "utf-8")
 
@@ -68,6 +79,9 @@ def preprocess(vtt_file, pre_file):
 
 
 def extract_text(pre_file, extract_file):
+    """
+    Remove duplicates in the text.
+    """
     fi = codecs.open(pre_file, "r", "utf-8")
     fo = codecs.open(extract_file, "w", "utf-8")
     i = 0
@@ -90,6 +104,9 @@ def extract_text(pre_file, extract_file):
 
 
 def add_time_stamps(extract_file, pre_file, txt_file, vtt_file):
+    """
+    Adds proper timestamps to the text.
+    """
     fi_extract = codecs.open(extract_file, "r", "utf-8")
     fi_pre = codecs.open(pre_file, "r", "utf-8")
     fo = codecs.open(txt_file, "w", "utf-8")
@@ -124,7 +141,7 @@ def add_time_stamps(extract_file, pre_file, txt_file, vtt_file):
 
 def main():
     """
-    TODO
+    Download, process and writes subtitle info to txt file.
 
     Arguments:
         None
@@ -151,6 +168,7 @@ def main():
 
     txt_file = os.path.splitext(vtt_file)[0] + ".txt"
     add_time_stamps(extract_file, pre_file, txt_file, vtt_file)
+
 
 if __name__ == '__main__':
     main()
